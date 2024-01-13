@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://cprfkahesnsf2"]
+
+[ext_resource type="Texture2D" uid="uid://ykynsqht5d16" path="res://Assets/MobileTools/res/Sprites/shadedDark/shadedDark22.png" id="1_jyfsi"]
+[ext_resource type="Script" path="res://Assets/MobileTools/Console/OpenPanelButton.gd" id="2_cjo0n"]
+
+[node name="Console" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OpenPanelButton" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_right = 552.0
+offset_bottom = 48.0
+texture = ExtResource("1_jyfsi")
+flip_h = true
+script = ExtResource("2_cjo0n")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4375
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Values" type="PanelContainer" parent="Panel/TabContainer"]
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Panel/TabContainer/Values"]
+layout_mode = 2
+text = "base test"
+fit_content = true
+
+[node name="Log" type="PanelContainer" parent="Panel/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Panel/TabContainer/Log"]
+layout_mode = 2
+
+[connection signal="gui_input" from="OpenPanelButton" to="OpenPanelButton" method="_on_gui_input"]
