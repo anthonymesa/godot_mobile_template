@@ -10,6 +10,7 @@ anchor_right = 0.5625
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_cjo0n")
 metadata/_edit_use_anchors_ = true
 
