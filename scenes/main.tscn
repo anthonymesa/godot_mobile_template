@@ -1,23 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://mk3ra6evp0m2"]
+[gd_scene load_steps=3 format=3 uid="uid://mk3ra6evp0m2"]
 
-[ext_resource type="PackedScene" uid="uid://bo685q5w7nedw" path="res://Assets/MobileTools/OnScreenJoystick/on_screen_joystick.tscn" id="1_3p5ll"]
+[ext_resource type="PackedScene" uid="uid://e3jvcroulr5e" path="res://Assets/MobileTools/ControlUI/control_ui.tscn" id="1_q3uqy"]
+[ext_resource type="PackedScene" uid="uid://cprfkahesnsf2" path="res://Assets/MobileTools/Console/console.tscn" id="2_7c11f"]
 
 [node name="Main" type="Node3D"]
+
+[node name="ControlUI" parent="." instance=ExtResource("1_q3uqy")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 current = true
 
-[node name="OnScreenJoystick" parent="." instance=ExtResource("1_3p5ll")]
-anchors_preset = -1
-anchor_left = 0.775521
-anchor_top = 0.64537
-anchor_right = 1.77552
-anchor_bottom = 1.64537
-offset_left = 85.0
-offset_top = 6.0
-offset_right = 85.0
-offset_bottom = 6.0
-grow_vertical = 0
-size_flags_vertical = 4
-joy_width = 0
-return_speed = 0
+[node name="Console" parent="." instance=ExtResource("2_7c11f")]

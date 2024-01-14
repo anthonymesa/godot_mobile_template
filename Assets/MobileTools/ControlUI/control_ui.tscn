@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://e3jvcroulr5e"]
+
+[ext_resource type="PackedScene" uid="uid://bo685q5w7nedw" path="res://Assets/MobileTools/OnScreenJoystick/on_screen_joystick.tscn" id="1_8rwrg"]
+
+[node name="ControlUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OnScreenJoystick" parent="." instance=ExtResource("1_8rwrg")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0171875
+anchor_top = 0.437963
+anchor_right = 1.01719
+anchor_bottom = 1.43796
+offset_left = 159.0
+offset_top = 108.0
+offset_right = 159.0
+offset_bottom = 108.0
+
+[node name="OnScreenJoystick2" parent="." instance=ExtResource("1_8rwrg")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.670313
+anchor_top = 0.438889
+anchor_right = 1.67031
+anchor_bottom = 1.43889
+offset_left = 97.0
+offset_top = 91.0
+offset_right = 97.0
+offset_bottom = 91.0
