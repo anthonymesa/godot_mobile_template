@@ -1,7 +1,5 @@
 extends Control
 
-signal updated
-
 @export var joy_width = 0
 @export var base_width = 0
 @export var return_speed = 0
@@ -10,7 +8,7 @@ var _base_center = Vector2.ZERO
 var is_being_dragged = false
 
 func _ready():
-	set_process_unhandled_input(true)
+	MultiTouchManager.updated.connect(_on_multi_touch_updated)
 	size = Vector2.ONE * base_width
 	$Joystick.size = Vector2.ONE * joy_width
 	$Base.size = Vector2.ONE * base_width
@@ -36,7 +34,10 @@ func move_joystick(mouse_pos):
 		$Joystick.position = (computed_position.normalized() * ((base_width / 2) - (joy_width / 2))) - ($Joystick.size / 2) + ($Base.size / 2)
 	var output = (($Joystick.position + ($Joystick.size / 2) - _base_center)) / (($Base.size / 2) - ($Joystick.size / 2))
 	#print_debug(snapped(output.length(), .01))
-	
+
+func _on_multi_touch_updated(pos):
+	pass
+
 func _on_joystick_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
