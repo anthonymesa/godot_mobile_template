@@ -8,12 +8,13 @@ var lerp_speed: float = 5  # Adjust this value to control the speed of the lerp
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MultiTouchManager.updated.connect(_on_multi_touch_updated)
 	original_position = position
 	target_position = original_position + Vector2($Panel.size.x, 0)
 
-func _on_open_panel_button_gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		is_open = !is_open
+func _on_multi_touch_updated(state):
+	#is_open = !is_open
+	pass
 
 func _process(delta):
 	if is_open and current_lerp_factor < 1.0:

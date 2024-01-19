@@ -21,7 +21,7 @@ func _process(delta):
 		$Joystick.position = $Joystick.position.lerp(_base_center - ($Joystick.size / 2), delta * return_speed)
 
 func move_joystick(mouse_pos):
-	var global_mouse_pos = get_global_mouse_position()
+	var global_mouse_pos = mouse_pos #get_global_mouse_position()
 	var joystick_half_size = $Joystick.size / 2
 	var new_pos = global_mouse_pos - joystick_half_size - position
 	$Joystick.position = new_pos
@@ -35,20 +35,18 @@ func move_joystick(mouse_pos):
 	var output = (($Joystick.position + ($Joystick.size / 2) - _base_center)) / (($Base.size / 2) - ($Joystick.size / 2))
 	#print_debug(snapped(output.length(), .01))
 
-func _on_multi_touch_updated(pos):
-	pass
-
-func _on_joystick_gui_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				is_being_dragged = true
-			else:
-				is_being_dragged = false
-	elif event is InputEventMouseMotion:
-		if is_being_dragged:
-			move_joystick(event.position)
-
-func _unhandled_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+func _on_multi_touch_updated(state):
+	var selected = -1
+	var pos = Vector2.ZERO
+	for id in state.keys():
+		pos = state[id]
+		if (pos - _base_center).length() < 1:
+			selected = id
+			break
+	
+	if selected < 0:
 		is_being_dragged = false
+		return
+		
+	is_being_dragged = true
+	move_joystick(pos)

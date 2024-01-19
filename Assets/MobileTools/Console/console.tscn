@@ -10,7 +10,7 @@ anchor_right = 0.5625
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("2_cjo0n")
 metadata/_edit_use_anchors_ = true
 
@@ -24,6 +24,7 @@ anchor_bottom = 0.0935185
 offset_top = 1.0
 offset_right = -54.0
 offset_bottom = -53.0
+scale = Vector2(2, 2)
 texture = ExtResource("1_jyfsi")
 flip_h = true
 metadata/_edit_use_anchors_ = true
@@ -61,5 +62,3 @@ layout_mode = 2
 
 [node name="Text" type="RichTextLabel" parent="Panel/TabContainer/Log"]
 layout_mode = 2
-
-[connection signal="gui_input" from="OpenPanelButton" to="." method="_on_open_panel_button_gui_input"]
